@@ -10,7 +10,7 @@ def create_app(config_name) :
     app.config.from_object(config_options[config_name])
 
 
-#To register the blueprint
+#To register the blueprintc
     from .main import main as main_blueprint
 
 
