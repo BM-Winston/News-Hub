@@ -8,6 +8,7 @@ def create_app(config_name) :
 
 
     app.config.from_object(config_options[config_name])
+    app.register_blueprint(main_blueprint)
 
 
 #To register the blueprintc
