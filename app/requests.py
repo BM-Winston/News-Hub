@@ -41,3 +41,5 @@ def process_results(results):
         news_object = News(title, description, urlToImage, content, publishedAt)
         news_results.append('news_object')
 
+    return news_results
+

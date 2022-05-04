@@ -1,7 +1,7 @@
 import os
 
 class Config:
-    pass
+    
 
     
     NEWS_API_SOURCES_URL = 'https://newsapi.org/v2/sources?apiKey={}'
