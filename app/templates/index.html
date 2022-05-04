@@ -1,0 +1,26 @@
+{% extends 'base.html'}
+{% block conntent %}
+<h1 class = "text-center">NEWS NOW</h1>
+    <ul>
+        { for articles in articles %}
+        <div class = "row row-cols-1 row-cols-md g-4 d-flex">
+            <div class="col p-3">
+                <div class="card p-3">
+                    <img src="" alt="">
+                    <div class="card-body">
+                        <h3 class="card-title text-warning">
+                            {{articles.title}}
+                        </h3>
+                        <p class="card text text-bold text-dark fs-3">{{articles.description}}</p>
+                        <p class="card-text fs-4">{{articles.description}}</p>
+                        <p class="card-text text-cenetr text-info display-5">{{articles.publishmedAt}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        {% endfor %}
+    </ul>
