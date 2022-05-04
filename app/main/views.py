@@ -1,23 +1,23 @@
 from flask import render_template
 from  .import main
-from ..requests import get_news, get_sources
+from ..requests import get_articles
 
 
 @main.route('/')
 def index():
     """
-    Function that return news souces
+    Function that return news sources
 
     """
-    news = get_news()
-    title = 'News Now'
-    return render_template('index.html',title = title, articles = news)
+    my_articles = get_articles()
 
-@main.route('/articles/<sources_id>')
-def sources():
-    '''
-    Returns the articles for the given sources
-    '''
-    news = get_sources()
+    return render_template('index.html', articles= my_articles)
+
+# @main.route('/articles/<sources_id>')
+# def sources():
+#     '''
+#     Returns the articles for the given sources
+#     '''
+#     news = get_articles()
     
-    return render_template('news.html',sources = news)
+#     return render_template('news.html',articles = articles)
