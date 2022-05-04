@@ -16,7 +16,7 @@ def configure_request(app):
 
 
 def get_articles():
-    get_news_url = 'https://newsapi.org/v2/top-headlines?category=business&language=en&apiKey=b3dbb2b9093b4fb4bf50993d2e0ab203'
+    get_news_url = 'https://newsapi.org/v2/top-headlines?category=sports&language=en&apiKey=b3dbb2b9093b4fb4bf50993d2e0ab203'
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -37,12 +37,44 @@ def process_results(news_list):
         title = news_item.get('title')
         description = news_item.get('description')
         urlToImage = news_item.get('urlToImage')
-        content = news_item.get('content')
+        
         publishedAt = news_item.get('publishedAt')
+        url = news_item.get('url')
 
 
-        news_object = Articles(title, description, urlToImage, content, publishedAt)
+        news_object = Articles(title, description, urlToImage, publishedAt, url)
         news_results.append(news_object)
 
     return news_results
+
+
+def get_sources():
+    get_sources_url = 'https://newsapi.org/v2/top-headlines/sources?apiKey=b3dbb2b9093b4fb4bf50993d2e0ab203'
+
+    with urllib.request.urlopen(get_sources_url) as url:
+        get_sources_data = url.read()
+        get_sources_response = json.loads(get_sources_data)
+
+
+        news_result = None
+
+        if get_sources_response['sources']:
+            sources_results_list = get_sources_response['sources']
+            sources_results = process_results(sources_results_list)
+    return sources_results
+
+
+def process_results(sources_list):
+    sources_results = []
+    for sources_item in sources_list:
+        title = sources_item.get('title')
+        description = sources_item.get('description')
+     
+        url = sources_item.get('url')
+
+
+        news_object = Sources(title, description,  url)
+        sources_results.append(news_object)
+
+    return sources_results
 

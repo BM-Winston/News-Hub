@@ -4,12 +4,13 @@ class Articles:
     """
 
 
-    def __init__(self, title,description,urlToImage, content, publishedAt):
+    def __init__(self, title,description,urlToImage, publishedAt, url):
         self.title = title
         self.description = description
         self.urlToImage = urlToImage
-        self.content = content
+        
         self.publishedAt = publishedAt
+        self.url = url
 
 class Sources:
     """
