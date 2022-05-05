@@ -5,15 +5,16 @@
 
 ### Live Link
 
+https://news-hub-winston.herokuapp.com/
+
 
 
 
 
 ## Description
-* A user would see various news sources on the homepage of the application.
-* A user would also be able to select a news source and see all news articles from the selected news source in the application.
-* A user will be able to see the image, description and the time a news article was created from the News-Articles button.
-A click on an article and read the full article on the source website.
+* A user would see various news sources on  the application.
+* A user would also be able to select news articles.
+* A user will be able to see the image, description and the time a news article was created from, click on the READ MORE link and get  the full article on the source website.
 
 
 ## Setup/Installation Requirements
@@ -22,7 +23,7 @@ A click on an article and read the full article on the source website.
 git clone https://github.com/BM-Winston/News-Hub.git
 
 2. Move to the folder and install requirements
-cd News-On-The-Go
+cd News-Hub
 pip install -r requirements.txt
 
 3. Exporting Configurations
@@ -34,7 +35,7 @@ chmod a+x start.sh
 ./start.sh
 
 5. Testing the application
-python3.6 manage.py test
+python3 manage.py test
 * Open the application on your browser.
 
 # Known Bugs
