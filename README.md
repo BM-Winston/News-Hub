@@ -44,6 +44,7 @@ No known bugs.
 ## Technologies Used
 * Python3.8
 * Flask
+* Heroku
 
 
 
