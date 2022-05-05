@@ -4,11 +4,10 @@ class Articles:
     '''
     class to define news articles objects
     '''
-    def __init__(self,title,urlToImage,content,author,publishedAt,url):
+    def __init__(self,title,urlToImage,description,publishedAt,url):
         self.title = title
+        self.description = description
         self.urlToImage = urlToImage
-        self.content = content
-        self.author = author
         self.publishedAt= publishedAt
         self.url=url
 
@@ -31,8 +30,7 @@ class TestArticles(unittest.TestCase):
 
         self.assertEqual(self.new_article.title,"")
         self.assertEqual(self.new_article.urlToImage,"")
-        self.assertEqual(self.new_article.content,"")
-        self.assertEqual(self.new_article.author,"")
+        self.assertEqual(self.new_article.description,"")
         self.assertEqual(self.new_article.publishedAt,"")
         self.assertEqual(self.new_article.url,"")
 

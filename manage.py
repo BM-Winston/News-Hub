@@ -7,14 +7,14 @@ app = create_app('development')
 manager = Manager(app)
 manager.add_command('server', Server)
 
-# @manager.command
-# def test():
-#     '''
-#     Run the unittest
-#     '''
-#     import unnittest
-#     test = unittest.Testloader().discover('tests')
-#     unittest.TextTestRunner(verbosity=2).run(tests)
+@manager.command
+def test():
+    '''
+    Run the unittest
+    '''
+    import unnittest
+    test = unittest.Testloader().discover('tests')
+    unittest.TextTestRunner(verbosity=2).run(tests)
 
 
 if __name__ == '__main__':

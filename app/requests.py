@@ -9,14 +9,13 @@ base_url = None
 def configure_request(app):
     global api_key,base_url,news_api_sources_url,news_articles_url
     api_key = app.config['NEWS_API_KEY']
-    # news_api_sources_url = app.config['NEWS_API_BASE_URL']
-    # news_api_sources_url = app.config['NEWS_API_SOURCES_URL']
-    base_url = app.config['BASE_URL']
+    
+
 
 
 
 def get_articles():
-    get_news_url = 'https://newsapi.org/v2/top-headlines?category=sports&language=en&apiKey=b3dbb2b9093b4fb4bf50993d2e0ab203'
+    get_news_url = 'https://newsapi.org/v2/top-headlines?category=sports&language=en&apiKey={}'.format(api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -36,20 +35,19 @@ def process_results(news_list):
     for news_item in news_list:
         title = news_item.get('title')
         description = news_item.get('description')
-        urlToImage = news_item.get('urlToImage')
-        
+        urlToImage = news_item.get('urlToImage')        
         publishedAt = news_item.get('publishedAt')
         url = news_item.get('url')
 
 
-        news_object = Articles(title, description, urlToImage, publishedAt, url)
+        news_object = Articles(title,description,urlToImage,publishedAt, url)
         news_results.append(news_object)
 
     return news_results
 
 
 def get_sources():
-    get_sources_url = 'https://newsapi.org/v2/top-headlines/sources?apiKey=b3dbb2b9093b4fb4bf50993d2e0ab203'
+    get_sources_url = 'https://newsapi.org/v2/top-headlines/sources?apiKey={}'.format(api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
